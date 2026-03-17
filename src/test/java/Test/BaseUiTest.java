@@ -41,9 +41,7 @@ public class BaseUiTest {
         }
 
         driver.manage().window().maximize();
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
 
         mainRegistrationPage = new MainRegistrationPage(driver);
         mainLoginPage = new MainLoginPage(driver);

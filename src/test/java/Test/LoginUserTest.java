@@ -7,14 +7,10 @@ import model.UserModel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 import static data.UserData.*;
+import static org.junit.Assert.assertEquals;
 import static steps.UserSteps.createUser;
 import static steps.UserSteps.deleteUser;
 
@@ -42,8 +38,8 @@ public class LoginUserTest extends  BaseUiTest {
         mainLoginPage.clickLoginAccountButton();
         mainLoginPage.fillingFieldsAccount(user);
         mainLoginPage.clickLoginButton();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement burgerIngredients = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Конструктор']")));
+        String text = mainLoginPage.visibilityOfBurgerIngredients();
+        assertEquals ("Конструктор",text);
     }
 
     @Test
@@ -54,10 +50,9 @@ public class LoginUserTest extends  BaseUiTest {
         mainRegistrationPage.clickPersonalAccountButton();
         mainLoginPage.fillingFieldsAccount(user);
         mainLoginPage.clickLoginButton();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement burgerIngredients = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Конструктор']")));
+        String text = mainLoginPage.visibilityOfBurgerIngredients();
+        assertEquals("Конструктор", text);
     }
-
     @Test
     @DisplayName("Login button registration form")
     @Description("Checking the login button in the registration form")
@@ -68,8 +63,8 @@ public class LoginUserTest extends  BaseUiTest {
         mainLoginPage.clickLoginButtonRegistrationForm();
         mainLoginPage.fillingFieldsAccount(user);
         mainLoginPage.clickLoginButton();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement burgerIngredients = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Конструктор']")));
+        String text = mainLoginPage.visibilityOfBurgerIngredients();
+        assertEquals ("Конструктор",text);
     }
 
     @Test
@@ -82,8 +77,8 @@ public class LoginUserTest extends  BaseUiTest {
         mainLoginPage.clickLoginButton();
         mainLoginPage.fillingFieldsAccount(user);
         mainLoginPage.clickLoginButton();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement burgerIngredients = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text()='Конструктор']")));
+        String text = mainLoginPage.visibilityOfBurgerIngredients();
+        assertEquals ("Конструктор",text);
     }
     @After
     public void cleanUp() {
